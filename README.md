@@ -280,7 +280,7 @@ This project is licensed under the **MIT License**.
 
 **VishalTech45**
 
-GitHub: `https://github.com/your-username`
+GitHub: `https://github.com/VishalTech45`
 
 ---
 
