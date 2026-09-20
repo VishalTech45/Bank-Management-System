@@ -21,7 +21,7 @@ This project demonstrates the practical use of **programming concepts, data stru
 ## 🛠️ Tech Stack
 
 * **Language:** C++ / Python
-* **Database:** MySQL / SQLite *(if applicable)*
+* **Database:** PostgreSQL / SQLite *(if applicable)*
 * **Version Control:** Git & GitHub
 * **IDE:** VS Code
 
