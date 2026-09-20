@@ -278,7 +278,7 @@ This project is licensed under the **MIT License**.
 
 ## 👨‍💻 Author
 
-**Your Name**
+**VishalTech45**
 
 GitHub: `https://github.com/your-username`
 
