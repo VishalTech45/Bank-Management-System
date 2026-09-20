@@ -149,7 +149,7 @@ The system maintains a record of transactions such as:
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/bank-management-system.git
+git clone [https://github.com/your-username/bank-management-system.git](https://github.com/VishalTech45/Bank-Management-System.git)
 ```
 
 Navigate to the project directory:
