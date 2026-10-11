@@ -1,287 +1,220 @@
-# 🏦 Bank Management System
+# 🏦 Bank Management System in C++
 
-A simple **Bank Management System** designed to manage basic banking operations such as creating accounts, depositing money, withdrawing money, checking balances, and viewing account details.
+A menu-driven **Bank Management System** developed in C++ using Object-Oriented Programming (OOP) concepts. The application supports customer registration, account creation, deposits, withdrawals, account details, and transaction history.
 
-This project demonstrates the practical use of **programming concepts, data structures, file/database handling, and modular software design**.
+The project uses **file handling** to store data locally in `bank_data.txt`, allowing saved records to be loaded when the application runs again.
 
 ## 📌 Features
 
-* 👤 Create a new bank account
-* 🔐 Account authentication / login
-* 💰 Deposit money
-* 💸 Withdraw money
-* 🏦 Check account balance
-* 📄 View account details
-* 🔄 Transfer money between accounts
-* 📜 View transaction history
-* ✏️ Update account information
-* ❌ Close an account
-* 🚫 Validation for insufficient balance and invalid transactions
+* **Customer Management**
 
-## 🛠️ Tech Stack
+  * Create new customers.
+  * Display registered customers.
+  * Validate phone numbers.
+  * Prevent duplicate phone numbers.
 
-* **Language:** C++ / Python
-* **Database:** PostgreSQL / SQLite *(if applicable)*
-* **Version Control:** Git & GitHub
-* **IDE:** VS Code
+* **Account Management**
 
-> Replace the technologies above according to your actual implementation.
+  * Create savings accounts.
+  * Create current accounts.
+  * View account details and balances.
+  * Display all active accounts.
+  * Close accounts when their balance is zero.
+  * Prevent reuse of previously used account numbers.
 
-## 📂 Project Structure
+* **Banking Operations**
+
+  * Deposit money.
+  * Withdraw money.
+  * Validate transaction amounts.
+  * Check account ownership during supported operations.
+
+* **Transaction Management**
+
+  * Maintain transaction records.
+  * View transaction history for an account.
+  * Display transaction receipts.
+
+* **File Handling**
+
+  * Save customer and account information.
+  * Store transaction records.
+  * Load saved data when the program starts.
+
+## 🛠️ Technologies Used
+
+| Technology                      | Purpose                         |
+| ------------------------------- | ------------------------------- |
+| C++                             | Core programming language       |
+| Object-Oriented Programming     | Application design              |
+| File Handling                   | Local data persistence          |
+| Standard Template Library (STL) | Data structures and collections |
+| Command-Line Interface          | User interaction                |
+
+## 🧠 OOP Concepts Demonstrated
+
+### 1. Encapsulation
+
+Classes manage their data through member functions and controlled access.
+
+### 2. Inheritance
+
+`SavingsAccount` and `CurrentAccount` inherit common account functionality from the abstract `Account` class.
+
+### 3. Abstraction
+
+The `Account` class defines a common interface and declares `withdraw()` as a pure virtual function.
+
+### 4. Polymorphism
+
+Different account types implement the `withdraw()` function according to their account-specific behavior.
+
+### 5. Classes and Objects
+
+The project uses classes such as `Customer`, `Account`, `SavingsAccount`, `CurrentAccount`, `Transaction`, and `Bank`.
+
+### 6. Static Data Members
+
+A static counter is used for customer ID generation.
+
+## 🏗️ Project Structure
 
 ```text
 Bank-Management-System/
-│
-├── src/
-│   ├── main.cpp
-│   ├── account.cpp
-│   ├── transaction.cpp
-│   └── bank.cpp
-│
-├── include/
-│   ├── account.h
-│   ├── transaction.h
-│   └── bank.h
-│
-├── data/
-│   └── accounts.dat
-│
-├── screenshots/
-│   └── demo.png
-│
-├── README.md
-└── LICENSE
+├── main.cpp
+├── bank_data.txt
+└── README.md
 ```
 
-## ⚙️ Core Operations
+**Note:** Replace `main.cpp` with your actual C++ source filename. The `bank_data.txt` file is used at runtime for local data storage and does not need to be committed unless you want to include sample data.
 
-### 1. Create Account
+## ⚙️ Installation and Execution
 
-The user provides details such as:
+### Prerequisites
 
-* Account holder name
-* Account number
-* Phone number
-* Address
-* Initial deposit
+* A C++ compiler such as GCC/G++.
+* A terminal or IDE, such as Visual Studio Code.
 
-The system validates the information and creates a new account.
-
-### 2. Deposit Money
-
-Users can deposit money into their account.
-
-```text
-Current Balance + Deposit Amount
-= New Balance
-```
-
-### 3. Withdraw Money
-
-Users can withdraw money if they have sufficient funds.
-
-```text
-if Withdrawal Amount <= Current Balance
-    Withdrawal successful
-else
-    Insufficient balance
-```
-
-### 4. Check Balance
-
-The system displays the current balance associated with the account.
-
-### 5. Money Transfer
-
-Money can be transferred from one account to another.
-
-```text
-Sender Balance -= Transfer Amount
-Receiver Balance += Transfer Amount
-```
-
-The transaction is performed only when the sender has sufficient funds.
-
-### 6. Transaction History
-
-The system maintains a record of transactions such as:
-
-* Deposits
-* Withdrawals
-* Transfers
-
-## 🔄 Application Flow
-
-```text
-             ┌──────────────┐
-             │     Start    │
-             └──────┬───────┘
-                    │
-                    ▼
-          ┌───────────────────┐
-          │     Login /       │
-          │   Create Account  │
-          └─────────┬─────────┘
-                    │
-                    ▼
-             ┌─────────────┐
-             │ Main Menu   │
-             └──────┬──────┘
-                    │
-       ┌────────────┼─────────────┐
-       ▼            ▼             ▼
-   Deposit       Withdraw      Transfer
-       │            │             │
-       └────────────┼─────────────┘
-                    │
-                    ▼
-            Check Balance
-                    │
-                    ▼
-          Transaction History
-                    │
-                    ▼
-                  Exit
-```
-
-## ▶️ How to Run
-
-### Clone the Repository
+### Step 1: Clone the Repository
 
 ```bash
-git clone [https://github.com/your-username/bank-management-system.git](https://github.com/VishalTech45/Bank-Management-System.git)
+git clone https://github.com/VishalTech45/Bank-Management-System.git
+cd Bank-Management-System
 ```
 
-Navigate to the project directory:
+### Step 2: Compile the Program
+
+Replace `main.cpp` with your actual source filename.
 
 ```bash
-cd bank-management-system
+g++ -std=c++17 main.cpp -o bank
 ```
 
-### Compile
+### Step 3: Run the Program
 
-For a C++ implementation:
+**Windows — PowerShell or Command Prompt**
 
-```bash
-g++ src/main.cpp -o bank
+```powershell
+.\bank.exe
 ```
 
-### Run
+**Linux / macOS**
 
 ```bash
 ./bank
 ```
 
-On Windows:
+## 📋 Application Menu
 
-```bash
-bank.exe
-```
+| Option | Operation                       |
+| -----: | ------------------------------- |
+|      1 | Create Customer                 |
+|      2 | Create Savings Account          |
+|      3 | Create Current Account          |
+|      4 | Deposit Money                   |
+|      5 | Withdraw Money                  |
+|      6 | Check Account Balance / Details |
+|      7 | Display All Accounts            |
+|      8 | View Transaction History        |
+|      9 | Close Account                   |
+|     10 | Display All Customers           |
+|      0 | Exit                            |
 
-## 🧪 Example
+Select an option and follow the on-screen instructions.
 
-```text
-====================================
-       BANK MANAGEMENT SYSTEM
-====================================
+## 💾 Data Storage
 
-1. Create Account
-2. Login
-3. Deposit Money
-4. Withdraw Money
-5. Transfer Money
-6. Check Balance
-7. Transaction History
-8. Exit
+The application stores data locally in `bank_data.txt`.
 
-Enter your choice: 3
+The file preserves information such as:
 
-Enter Account Number: 100234
-Enter Amount: ₹5000
+* Customer records
+* Active account records
+* Previously used account numbers
+* Transaction records
 
-✓ Money deposited successfully!
+The program loads saved data when it starts and saves data through its file-persistence functionality.
 
-Updated Balance: ₹15,000
-```
+**Important:** Keep the data file in the location expected by the application. Back it up if you want to preserve your records.
 
-## 🔒 Validation & Security
+This is a local file-based application. It does not currently use PostgreSQL or another database.
 
-The system performs basic validation such as:
+## ✅ Validation and Error Handling
 
-* Preventing withdrawal when the balance is insufficient
-* Checking whether an account exists
-* Preventing invalid transaction amounts
-* Validating account information
-* Protecting account operations through authentication
+The current implementation includes checks for:
 
-> This project is intended for **educational purposes** and should not be used as a real banking application without proper security, encryption, auditing, and regulatory compliance.
+* Phone numbers containing exactly 10 digits.
+* Duplicate customer phone numbers.
+* Invalid or non-positive transaction amounts.
+* Account ownership during supported operations.
+* Account closure only when the balance is zero.
+* Reuse of previously assigned account numbers.
 
-## 🎯 Learning Objectives
+## ⚠️ Current Limitations
 
-This project helps demonstrate:
-
-* Object-Oriented Programming
-* Functions and modular programming
-* Data structures
-* File handling / database operations
-* Exception handling
-* Input validation
-* CRUD operations
-* Transaction processing
-* Git and GitHub workflow
+* Data is stored in a local text file rather than a database.
+* Monetary values use `double`, which can introduce floating-point precision issues.
+* The application uses a console-based interface.
+* Login/PIN authentication is not currently implemented.
+* Online banking, fund transfers, and overdraft facilities are not implemented.
+* The interest calculation is basic and does not represent a complete real-world banking policy.
 
 ## 🚀 Future Improvements
 
-Possible improvements include:
+Potential enhancements for future versions include:
 
-* [ ] Add a graphical user interface
-* [ ] Add PostgreSQL/MySQL database support
-* [ ] Implement JWT/session-based authentication
-* [ ] Encrypt sensitive information
-* [ ] Add email/SMS notifications
-* [ ] Generate bank statements
-* [ ] Add admin dashboard
-* [ ] Add interest calculation
-* [ ] Add loan management
-* [ ] Add automated transaction reports
-* [ ] Add unit and integration tests
+* Integrating PostgreSQL for structured data storage.
+* Using integer paise for more reliable monetary calculations.
+* Adding secure authentication and role-based access.
+* Implementing fund transfers between accounts.
+* Improving transaction consistency and error handling.
+* Adding account statements and financial reports.
+* Developing a graphical user interface or REST API.
+* Adding automated unit tests.
 
-## 🤝 Contributing
+*These are proposed enhancements, not features currently implemented.*
 
-Contributions are welcome.
+## 🎯 Learning Objectives
 
-1. Fork the repository
-2. Create a new branch
+This project demonstrates practical applications of:
 
-```bash
-git checkout -b feature/new-feature
-```
-
-3. Make your changes
-4. Commit your changes
-
-```bash
-git commit -m "Add new feature"
-```
-
-5. Push the branch
-
-```bash
-git push origin feature/new-feature
-```
-
-6. Create a Pull Request
-
-## 📄 License
-
-This project is licensed under the **MIT License**.
+* C++ classes and objects
+* Inheritance and polymorphism
+* Abstract classes and virtual functions
+* Encapsulation and abstraction
+* Pointers and object management
+* Input validation
+* File handling and data persistence
+* Menu-driven program design
 
 ## 👨‍💻 Author
 
-**VishalTech45**
+**Vishal Kumar**
 
-GitHub: `https://github.com/VishalTech45`
+## 📄 License
+
+No specific open-source license is included unless a `LICENSE` file is added to the repository.
 
 ---
 
-⭐ If you found this project useful, consider giving the repository a star!
+**Disclaimer:** This is an educational banking simulation and is not intended for real banking or financial transactions.
